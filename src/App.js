@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+// import Clicker from './Components/Clicker'
+import { useEffect ,useRef } from 'react';
 
-function App() {
+const App = () => {
+
+  const inputRef = useRef(null)
+
+  const handleClick = () => {
+    inputRef.current.focus();
+  }
+
+  useEffect(() => {
+    inputRef.current.focus()
+  })
+
+  // const [isClicker,setClicker] = useState(false)
+
+  // useEffect(() => {
+  //   console.log('render',isClicker)
+
+  //   return () => console.log('hey')
+
+  // },[isClicker])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>React App</h1>
+      {/* <button onClick={() => setClicker(!isClicker)}>Toogle Clicker</button>
+      {isClicker && <Clicker />} */}
+
+      <input 
+        type='text'
+        placeholder='Enter your name'
+        ref={inputRef}
+      />
+      <br />
+      <button onClick={handleClick}>Click</button>
+      
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
